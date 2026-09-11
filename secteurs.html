@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parc Animalier de Val-Sorin - Secteurs</title>
+</head>
+
+<body>
+    <h1>Secteurs du Parc Animalier de Val-Sorin</h1>
+
+    <table>
+        <caption>Secteurs</caption>
+        <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Surface</th>
+                <th scope="col">Capacité en m²</th>
+                <th scope="col">Nombre d'animaux</th>
+            </tr>
+        </thead>
+        <tbody id="body">
+
+        </tbody>
+    </table>
+</body>
+<script>
+    fetch("./data/csv/secteurs.csv")
+        .then(response => response.text())
+        .then(csv => {
+            const lignes = csv.trim().split('\n');
+            const secteurContainer = document.getElementById('body');
+
+            lignes.forEach((line, index) => {
+                if (index === 0) return;
+                const lineData = line.split(';');
+                const newEl = document.createElement('tr');
+                newEl.innerHTML = `
+                    <td>${lineData[1]}</td>
+                    <td>${lineData[2]}</td>
+                    <td>${lineData[3]}</td>
+                    <td>${lineData[4]}</td>
+                `;
+                secteurContainer.appendChild(newEl);
+            });
+        });
+</script>
+
+</html>

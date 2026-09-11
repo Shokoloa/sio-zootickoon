@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parc Animalier de Val-Sorin</title>
+</head>
+
+<body>
+    <div id="secteur"></div>
+    <div id="animaux"></div>
+</body>
+<script>
+    fetch("./data/csv/secteurs.csv")
+        .then(response => response.text())
+        .then(csv => {
+            const lignes = csv.trim().split('\n');
+            const secteurContainer = document.getElementById('secteur');
+
+            lignes.forEach(line => {
+                const lineData = line.split(';');
+                if (lineData[0] !== window.location.hash.replace('#', '')) return;
+
+                console.log(line)
+                const newEl = document.createElement('img');
+                newEl.src = `./data/images/${lineData[1].toLowerCase()}.svg`;
+                secteurContainer.appendChild(newEl);
+            });
+        });
+
+    fetch("./data/csv/animaux.csv")
+        .then(response => response.text())
+        .then(csv => {
+            const lignes = csv.trim().split('\n');
+            const secteurContainer = document.getElementById('animaux');
+
+            lignes.forEach(line => {
+                const lineData = line.split(';');
+                if (lineData[3] !== window.location.hash.replace('#', '')) return;
+
+                console.log(line)
+                const newEl = document.createElement('p');
+                newEl.innerHTML = `${lineData[1]}`;
+                secteurContainer.appendChild(newEl);
+            });
+        });
+</script>
+
+</html>
