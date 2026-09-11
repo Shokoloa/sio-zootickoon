@@ -1,0 +1,59 @@
+<!-- EXEMPLE DE SYNTAXE sur un autre domaine (cinema de quartier) -- a
+transposer, pas a copier -->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    sans viewport, un telephone affiche la page en largeur bureau puis la retrecit : tout
+    devient illisible
+    <title>Le Rex - programme de la semaine</title>
+</head>
+
+<body>
+    <header>
+        <h1>Cinéma Le Rex</h1>
+        <nav aria-label="Menu principal">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="salles.html">Salles</a></li>
+                <li><a href="signaler.html">Signaler</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Les salles</h2>
+        <table>
+            <caption>Capacité par salle</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Salle</th>
+                    <th scope="col">Places</th>
+                    <th scope="col">Équipement</th>
+                </tr>
+            </thead>
+            thead + scope : un lecteur d ecran sait quelle colonne il lit ; c est aussi ce que le CSS
+            ciblera
+            <tbody>
+                <tr>
+                    <td>Salle 1</td>
+                    <td>220</td>
+                    <td>Dolby
+                        Atmos</td>
+                </tr>
+            </tbody>
+        </table>
+        <article>
+            <h3>Séance de 20 h</h3>
+            <p>…</p>
+        </article>
+        article : un contenu qui a un sens seul (une seance, un animal). section : un regroupement.
+        div : rien de tout ca
+    </main>
+    <footer>
+        <p>Le Rex, 12 rue des Lilas</p>
+    </footer>
+</body>
+
+</html>
