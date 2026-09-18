@@ -1,0 +1,160 @@
+:root {
+  --fond: #f7f3e9;
+  --texte: #3b2f2f;
+  --accent: #c97b2e;
+  --police: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--police);
+  color: var(--texte);
+  background: var(--fond);
+  margin: 0;
+}
+
+header, main, footer {
+  padding: 1rem 1.5rem;
+}
+
+h1, h2, h3 {
+  color: var(--accent);
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--texte);
+}
+
+/* --- Navigation : flexbox --- */
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+nav a {
+  color: var(--texte);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* --- Grille des secteurs (accueil) et des animaux (secteur.html) --- */
+.cartes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .cartes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cartes li,
+.cartes article {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transition: transform 0.2s;
+}
+
+.cartes li:hover,
+.cartes article:hover {
+  transform: scale(1.02);
+}
+
+.cartes img {
+  max-width: 100%;
+  border-radius: 0.4rem;
+}
+
+/* la fiche de l'animal en soins se distingue des autres */
+.en-soins {
+  border: 2px solid var(--accent);
+  background: #fff6ec;
+}
+
+/* --- Tableau des secteurs --- */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+caption {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+th {
+  background: var(--accent);
+  color: white;
+  text-align: left;
+  padding: 0.5rem;
+}
+
+td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background: #f0ece0;
+}
+
+/* --- Formulaire de ticket --- */
+label {
+  display: block;
+  margin-top: 0.75rem;
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  font-family: inherit;
+  margin-top: 0.25rem;
+}
+
+textarea {
+  min-height: 6rem;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 3px solid var(--accent);
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  max-width: 30rem;
+}
+
+button {
+  margin-top: 1rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  opacity: 0.9;
+}

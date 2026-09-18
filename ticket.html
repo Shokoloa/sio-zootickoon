@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Signaler un incident - Parc animalier de Val-Sorin</title>
+  <link rel="stylesheet" href="css/site.css">
+</head>
+
+<body>
+  <header>
+    <h1>Signaler un incident</h1>
+    <nav aria-label="Menu principal">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="secteurs.html">Secteurs</a></li>
+        <li><a href="ticket.html">Signaler un incident</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <form action="traiter_ticket.php" method="post">
+      <fieldset>
+        <legend>Déclaration d'incident</legend>
+
+        <label for="secteur">Secteur concerné</label>
+        <select id="secteur" name="secteur" required>
+          <option value="SAV">Savane</option>
+          <option value="TRO">Forêt tropicale</option>
+          <option value="BAN">Banquise</option>
+          <option value="FER">Ferme pédagogique</option>
+          <option value="VOL">Grande volière</option>
+          <option value="AQU">Aquarium</option>
+        </select>
+
+        <label for="sujet">Sujet</label>
+        <input id="sujet" name="sujet" type="text" maxlength="120" required>
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <p>Priorité :
+          <input type="radio" id="p1" name="priorite" value="basse" checked>
+          <label for="p1">basse</label>
+          <input type="radio" id="p2" name="priorite" value="moyenne">
+          <label for="p2">moyenne</label>
+          <input type="radio" id="p3" name="priorite" value="haute">
+          <label for="p3">haute</label>
+        </p>
+
+        <label for="mel">Votre adresse électronique</label>
+        <input id="mel" name="mel" type="email" required>
+
+        <button type="submit">Envoyer la déclaration</button>
+      </fieldset>
+    </form>
+  </main>
+  <footer>
+    <p>Parc animalier de Val-Sorin — route des Étangs, Val-Sorin</p>
+  </footer>
+</body>
+
+</html>

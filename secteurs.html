@@ -1,50 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parc Animalier de Val-Sorin - Secteurs</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Les secteurs du parc - Parc animalier de Val-Sorin</title>
+  <link rel="stylesheet" href="css/site.css">
 </head>
 
 <body>
-    <h1>Secteurs du Parc Animalier de Val-Sorin</h1>
-
+  <header>
+    <h1>Les secteurs du parc</h1>
+    <nav aria-label="Menu principal">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="secteurs.html">Secteurs</a></li>
+        <li><a href="ticket.html">Signaler un incident</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
     <table>
-        <caption>Secteurs</caption>
-        <thead>
-            <tr>
-                <th scope="col">Nom</th>
-                <th scope="col">Surface</th>
-                <th scope="col">Capacité en m²</th>
-                <th scope="col">Nombre d'animaux</th>
-            </tr>
-        </thead>
-        <tbody id="body">
-
-        </tbody>
+      <caption>Surface, capacité et effectif des six secteurs</caption>
+      <thead>
+        <tr>
+          <th scope="col">Secteur</th>
+          <th scope="col">Surface (m²)</th>
+          <th scope="col">Capacité</th>
+          <th scope="col">Animaux</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
     </table>
+  </main>
+  <footer>
+    <p>Parc animalier de Val-Sorin — route des Étangs, Val-Sorin</p>
+  </footer>
 </body>
-<script>
-    fetch("./data/csv/secteurs.csv")
-        .then(response => response.text())
-        .then(csv => {
-            const lignes = csv.trim().split('\n');
-            const secteurContainer = document.getElementById('body');
-
-            lignes.forEach((line, index) => {
-                if (index === 0) return;
-                const lineData = line.split(';');
-                const newEl = document.createElement('tr');
-                newEl.innerHTML = `
-                    <td>${lineData[1]}</td>
-                    <td>${lineData[2]}</td>
-                    <td>${lineData[3]}</td>
-                    <td>${lineData[4]}</td>
-                `;
-                secteurContainer.appendChild(newEl);
-            });
-        });
-</script>
+<script src="js/secteurs.js"></script>
 
 </html>

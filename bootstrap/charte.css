@@ -1,0 +1,30 @@
+:root {
+  --fond: #f7f3e9;
+  --texte: #3b2f2f;
+  --accent: #c97b2e;
+  --police: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--police);
+  background: var(--fond);
+  color: var(--texte);
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--accent);
+}
+
+.navbar {
+  background: var(--accent) !important;
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.en-soins {
+  border: 2px solid var(--accent) !important;
+  background: #fff6ec;
+}

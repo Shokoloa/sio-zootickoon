@@ -1,50 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parc Animalier de Val-Sorin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La savane - Parc animalier de Val-Sorin</title>
+  <link rel="stylesheet" href="css/site.css">
 </head>
 
 <body>
-    <div id="secteur"></div>
-    <div id="animaux"></div>
+  <header>
+    <h1 id="secteur-titre"></h1>
+    <nav aria-label="Menu principal">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="secteurs.html">Secteurs</a></li>
+        <li><a href="ticket.html">Signaler un incident</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <img id="secteur-img" src="data/images/savane.svg"
+      alt="Grande plaine herbeuse de la savane, girafes, zèbres et autruches en cohabitation">
+    <p id="secteur-p">Grande plaine herbeuse de trois hectares, girafes, zèbres et autruches en cohabitation.</p>
+
+    <h2>Les animaux du secteur</h2>
+    <ul id="sommaire"></ul>
+
+    <h2>Les fiches</h2>
+    <section id="fiches" class="cartes"></section>
+  </main>
+  <footer>
+    <p>Parc animalier de Val-Sorin — route des Étangs, Val-Sorin</p>
+  </footer>
 </body>
-<script>
-    fetch("./data/csv/secteurs.csv")
-        .then(response => response.text())
-        .then(csv => {
-            const lignes = csv.trim().split('\n');
-            const secteurContainer = document.getElementById('secteur');
-
-            lignes.forEach(line => {
-                const lineData = line.split(';');
-                if (lineData[0] !== window.location.hash.replace('#', '')) return;
-
-                console.log(line)
-                const newEl = document.createElement('img');
-                newEl.src = `./data/images/${lineData[1].toLowerCase()}.svg`;
-                secteurContainer.appendChild(newEl);
-            });
-        });
-
-    fetch("./data/csv/animaux.csv")
-        .then(response => response.text())
-        .then(csv => {
-            const lignes = csv.trim().split('\n');
-            const secteurContainer = document.getElementById('animaux');
-
-            lignes.forEach(line => {
-                const lineData = line.split(';');
-                if (lineData[3] !== window.location.hash.replace('#', '')) return;
-
-                console.log(line)
-                const newEl = document.createElement('p');
-                newEl.innerHTML = `${lineData[1]}`;
-                secteurContainer.appendChild(newEl);
-            });
-        });
-</script>
+<script src="js/secteur.js"></script>
 
 </html>
